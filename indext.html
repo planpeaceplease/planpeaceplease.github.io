@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>planpeaceplease — Founder & Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #1a1a18;
+  --ink-2: #52524e;
+  --ink-3: #9a9a94;
+  --paper: #f8f6f1;
+  --paper-2: #eeeae0;
+  --accent: #2d5a3d;
+  --accent-light: #e6f0e9;
+  --border: rgba(26,26,24,0.09);
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --max: 720px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 48px;
+  background: rgba(248,246,241,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 14px;
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--ink); }
+
+.nav-cta {
+  color: var(--accent) !important;
+  border: 1px solid var(--accent);
+  padding: 7px 18px;
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.nav-cta:hover { background: var(--accent) !important; color: #fff !important; }
+
+/* HERO */
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 168px 24px 96px;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+}
+
+.badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: blink 2.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5.5vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+
+h1 em { font-style: italic; color: var(--accent); }
+
+.hero-desc {
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto 36px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-dark:hover { background: var(--accent); transform: translateY(-1px); }
+
+.btn-light {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 14px;
+  padding: 12px 24px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-light:hover { border-color: var(--ink-3); color: var(--ink); }
+
+/* STATS */
+.stats {
+  display: flex;
+  justify-content: center;
+  max-width: var(--max);
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.stat {
+  flex: 1;
+  padding: 36px 0;
+  text-align: center;
+}
+
+.stat + .stat { border-left: 1px solid var(--border); }
+
+.stat-n {
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.stat-l {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+/* SECTIONS */
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 32px;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.5vw, 34px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+.body-text {
+  font-size: 16px;
+  color: var(--ink-2);
+  line-height: 1.85;
+  margin-bottom: 14px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 24px;
+}
+
+.skill {
+  font-size: 13px;
+  color: var(--ink-2);
+  background: var(--paper-2);
+  padding: 5px 13px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+/* WORK LIST */
+.list { display: flex; flex-direction: column; }
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.22s;
+}
+
+.list-item:first-child { border-top: 1px solid var(--border); }
+.list-item:hover { padding-left: 10px; }
+
+.list-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 2px 9px;
+  border-radius: 100px;
+  margin-bottom: 9px;
+}
+
+.list-title {
+  font-family: var(--serif);
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 5px;
+  line-height: 1.25;
+}
+
+.list-desc {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.6;
+}
+
+.arrow {
+  font-size: 17px;
+  color: var(--ink-3);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.list-item:hover .arrow { color: var(--accent); transform: translate(3px,-3px); }
+
+/* ARTICLE LIST */
+.article-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.22s;
+}
+
+.article-item:first-child { border-top: 1px solid var(--border); }
+.article-item:hover { padding-left: 10px; }
+
+.article-date {
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-bottom: 5px;
+}
+
+.article-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.article-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.article-time { font-size: 12px; color: var(--ink-3); }
+
+/* EMAIL */
+.email-wrap {
+  background: var(--ink);
+  padding: 88px 24px;
+}
+
+.email-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.email-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(248,246,241,0.3);
+  margin-bottom: 18px;
+}
+
+.email-title {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  margin-bottom: 12px;
+}
+
+.email-title em { font-style: italic; color: #9fc4ab; }
+
+.email-desc {
+  font-size: 15px;
+  color: rgba(248,246,241,0.45);
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+.email-form {
+  display: flex;
+  max-width: 420px;
+  margin: 0 auto 10px;
+  border: 1px solid rgba(248,246,241,0.14);
+  border-radius: 100px;
+  overflow: hidden;
+  background: rgba(248,246,241,0.05);
+}
+
+.email-form input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 13px 20px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--paper);
+  min-width: 0;
+}
+
+.email-form input::placeholder { color: rgba(248,246,241,0.28); }
+
+.email-form button {
+  background: var(--paper);
+  color: var(--ink);
+  border: none;
+  padding: 13px 22px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 100px;
+  margin: 4px;
+  transition: background 0.2s;
+}
+
+.email-form button:hover { background: #9fc4ab; }
+
+#email-success {
+  display: none;
+  color: #9fc4ab;
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+.email-note { font-size: 12px; color: rgba(248,246,241,0.22); }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.footer-links { display: flex; gap: 22px; }
+.footer-links a { color: var(--ink-3); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--ink); }
+
+/* FADE */
+.fade { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade.in { opacity: 1; transform: translateY(0); }
+
+/* MOBILE */
+@media (max-width: 640px) {
+  nav { padding: 18px 20px; }
+  .nav-links li:not(:last-child) { display: none; }
+  .hero { padding: 120px 20px 72px; }
+  .stats { flex-wrap: wrap; }
+  .stat { padding: 22px 28px; border-right: none; border-bottom: 1px solid var(--border); flex: 1 0 33%; }
+  .stat:first-child { border-left: none; }
+  .section { padding: 60px 20px; }
+  footer { flex-direction: column; gap: 14px; text-align: center; padding: 24px 20px; }
+  .article-meta { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">planpeaceplease</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#articles">Articles</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    Open to collaborations · Founder & Builder
+  </div>
+  <h1>Building digital products that <em>bring peace</em> to the process.</h1>
+  <p class="hero-desc">
+    I believe the right tools help people achieve their goals — gaining clarity, cutting waste, and saving energy to get things done.
+  </p>
+  <div class="hero-actions">
+    <a href="#work" class="btn-dark">See my work →</a>
+    <a href="#contact" class="btn-light">Stay in touch</a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <p class="stat-n">2</p>
+    <p class="stat-l">Tools shared</p>
+  </div>
+  <div class="stat">
+    <p class="stat-n">3</p>
+    <p class="stat-l">Products in the making</p>
+  </div>
+  <div class="stat">
+    <p class="stat-n">11K+</p>
+    <p class="stat-l">Tools accessed</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section fade" id="about">
+  <p class="eyebrow">About</p>
+  <h2>Good products should feel like a deep breath.</h2>
+  <p class="body-text">
+    As a founder and builder, I trust systems more than motivation. Every tool I create, I've used myself first — refining it over time before sharing it with others. I work at the intersection of strategy, systems thinking, and design. Everything I build starts from one idea: clarity is something you can design for.
+  </p>
+  <div class="skills">
+    <span class="skill">Building products</span>
+    <span class="skill">Designing systems</span>
+    <span class="skill">Writing & content</span>
+    <span class="skill">Personal PM</span>
+    <span class="skill">Habit & self-improvement</span>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section fade" id="work" style="padding-top:0;">
+  <p class="eyebrow">Selected Work</p>
+  <div class="list">
+
+    <a href="#" class="list-item">
+      <div>
+        <span class="list-tag">Template</span>
+        <p class="list-title">Personal Finance Annual Plan</p>
+        <p class="list-desc">Plan and forecast your full year finances by category — so you always know where your money goes, and stay in control no matter what comes up.</p>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+    <a href="#" class="list-item">
+      <div>
+        <span class="list-tag">Template</span>
+        <p class="list-title">Weekly Reflection</p>
+        <p class="list-desc">A weekly framework to clear your mind, reflect on what went well and what didn't, and step into the next week feeling fresh and ready.</p>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="section fade" id="articles" style="padding-top:0;">
+  <p class="eyebrow">Articles</p>
+  <div class="list">
+
+    <a href="https://jponotes.substack.com/p/i-treat-my-life-as-a-project" target="_blank" class="article-item">
+      <div>
+        <p class="article-date">March 12, 2026</p>
+        <p class="article-title">I Treat My Life As a Project</p>
+      </div>
+      <div class="article-meta">
+        <span class="article-time">jpo.notes</span>
+        <span class="arrow">↗</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- EMAIL -->
+<div class="email-wrap" id="contact">
+  <div class="email-inner">
+    <p class="email-eyebrow">Stay in the loop</p>
+    <h2 class="email-title">Get updates <em>before everyone else.</em></h2>
+    <p class="email-desc">Occasional emails on new tools, articles, and ideas on building calm,<br>focused digital products.</p>
+    <a href="https://jponotes.substack.com/subscribe" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#9fc4ab;color:#1a1a18;font-family:var(--sans);font-size:15px;font-weight:500;padding:16px 32px;border-radius:100px;text-decoration:none;margin:0 auto 12px;transition:background 0.2s,transform 0.15s;" onmouseover="this.style.background='#fff';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#9fc4ab';this.style.transform='translateY(0)'">Subscribe on Substack →</a>
+    <p class="email-note">No spam. Unsubscribe anytime.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 planpeaceplease</p>
+  <div class="footer-links">
+    <a href="https://x.com/planpeaceplease" target="_blank">X (Twitter)</a>
+    <a href="https://jponotes.substack.com" target="_blank">Substack</a>
+  </div>
+</footer>
+
+<script>
+function handleSubscribe() {
+  const input = document.getElementById('email-input');
+  const form = document.getElementById('email-form-wrap');
+  const success = document.getElementById('email-success');
+  if (!input.value || !input.value.includes('@')) {
+    input.style.boxShadow = '0 0 0 2px rgba(200,80,80,0.35)';
+    input.focus();
+    return;
+  }
+  form.style.display = 'none';
+  success.style.display = 'block';
+}
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.07 });
+
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
